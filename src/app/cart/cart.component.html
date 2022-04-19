@@ -1,0 +1,31 @@
+<div class="content my-4" role="main">
+    <div class="container">
+        <ng-container *ngIf="products.length > 0">
+            <div class="cart-item" *ngFor="let product of products">
+                <div class="product-item">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="d-flex align-items-center justify-content-center h-100">
+                                <div class="promo-holder">
+                                    {{ product.promotiontext }}
+                                </div> 
+                                <img title="{{ product.name }}" alt="{{ product.productImageAltText }}" width="46" height="26" src="{{ product.productImageUrl }}" class="img-responsive">
+                            </div>
+                        </div> 
+                        <div class="col-9">
+                            <div class="py-2">
+                                <h3>{{ product.name }}</h3> 
+                                <p class="price">
+                                    <span>{{ product.price.currency }} {{ product.price.formattedValue }}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="products.length === 0">
+            <span>Cart is empty</span>
+        </ng-container>
+    </div>
+</div>
